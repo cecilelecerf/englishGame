@@ -9,7 +9,7 @@ services:
       - '-c'
       - 'npm install && npm start'
     ports:
-      - '3002:3001'
+      - '3002:3002'
     volumes:
       - './src:/home/node/app'
   mongo:

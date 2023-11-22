@@ -1,37 +1,53 @@
-<script lang="ts">
-export default {
-	props :({
-	title: String
+<script setup lang="ts">
+// defineProps<{
+// 	props :({
+// 		title ?: String
+// 	})
+
+import { ref } from 'vue';
+
+// }>()
+const props = defineProps({
+	title : {type : String, required : false},
+	image1 : {type : String},
+	image2 : {type : String, required : true },
+	image3 : {type : String, required : true },
+	image4 : {type : String, required : true }
 })
-}
+// console.log(props.image1)
+const base64Image = ref(props.image1); // Ajoutez votre chaîne base64 ici
+
+
 
 </script>
-<template>
-	<div>
-		<title>carte</title>
-	</div>
+<template id="backCard ">
 	<div id="carte">
 		<div class="_idGenObjectLayout-1">
 			<div id="_idContainer005">
 				<div id="_idContainer000" class="Basic-Graphics-Frame _idGenObjectStyleOverride-1">
 				</div>
 				<div id="_idContainer001" class="Basic-Graphics-Frame _idGenObjectStyleOverride-2">
-					<img src="../icons/Bic.png" alt="" class="image">
+					<img :src="base64Image" alt="" class="image">
 				</div>
 				<div id="_idContainer002" class="Basic-Graphics-Frame _idGenObjectStyleOverride-2">
-					<img src="../icons/AirFrance.png" alt="" class="image">
+					<img :src="image2" alt="" class="image">
 				</div>
 				<div id="_idContainer003" class="Basic-Graphics-Frame _idGenObjectStyleOverride-2">
-					<img src="../icons/LV.png" alt="" class="image">
+					<img :src="image3" alt="" class="image">
 				</div>
 				<div id="_idContainer004" class="Basic-Graphics-Frame _idGenObjectStyleOverride-2">
-					<img src="../icons/Renault.png" alt="" class="image">
+					<img :src="image4" alt="" class="image">
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
 <style scoped>
+
+#carte{
+ width: fit-content;
+ height: fit-content;
+}
 .image{
 	width: 100%;
 	height: 100%;
@@ -64,7 +80,7 @@ div.Basic-Graphics-Frame {
 	-webkit-transform-origin:0% 0%;
 	height:256.95px;
 	left:0px;
-	position:absolute;
+	/* position:absolute; */
 	top:0px;
 	transform:translate(0.000px,0.000px) rotate(0.000deg) skew(0.000deg) scale(1.000,1.000);
 	transform:translate(0.000px,0.000px) rotate(0.000deg) skew(0.000deg) scale(1.000,1.000);
@@ -139,9 +155,9 @@ div.Basic-Graphics-Frame {
 }
 #_idContainer005 {
 	display:inline-block;
-	height:259px;
+	height:fit-content;
 	position:relative;
-	width:168px;
+	width:fit-content;
 }
 div._idGenObjectStyleOverride-1 {
 	background-color:#ffffff;
@@ -156,6 +172,8 @@ div._idGenObjectStyleOverride-2 {
 }
 div._idGenObjectLayout-1 {
 	text-align:center;
+	width: fit-content;
+	height: fit-content;
 }
 
 </style>

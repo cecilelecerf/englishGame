@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AddCard: typeof import('./src/components/addCard/AddCard.vue')['default']
     BackCardTemplate: typeof import('./src/components/addCard/BackCardTemplate.vue')['default']
+    BackCardTest: typeof import('./src/components/addCard/BackCardTest.vue')['default']
     BButton: typeof import('bootstrap-vue-next')['BButton']
     BCard: typeof import('bootstrap-vue-next')['BCard']
     BForm: typeof import('bootstrap-vue-next')['BForm']

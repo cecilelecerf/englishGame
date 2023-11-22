@@ -19,9 +19,11 @@ exports.listenAllBrands = async (req,res) => {
 
 exports.createABrand =  async(req, res) => {
     const newBrand = new Brand(req.body);
+    const iconographicLogoPath = req.files['iconographicLogo'][0].path;
+    const pixalisedLogoPath = req.files['pixalisedLogo'][0].path;
+    const iconBusinessPath = req.files['iconBusiness'][0].path;
     try{
         const brand = await newBrand.save();
-
         res.status(201);
         res.json(brand);
     } catch(error) {

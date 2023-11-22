@@ -17,6 +17,8 @@ import HeaderComponent from './components/HeaderComponent.vue';
 #app{
   padding: 0 !important;
   background-color: rgb(241, 241, 241);
+  margin: none;
+  width: 100%;
 }
 main, header {
   padding: 20px 2rem;
