@@ -20,9 +20,9 @@
     })
 </script>
 <template>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center" id="onBoardingModal">
 
-        <BButton @click="modal1 = !modal1"> Explication of add a brand in a game </BButton>
+        <BButton @click="modal1 = !modal1" class="btn btn-outline-primary"> Explication of add a brand in a game </BButton>
     </div>
     <BModal v-model="modal1" title="Onboarding" v-if="modal1" ok-title="Next" @ok="nextStep">
         <h3>
@@ -51,4 +51,7 @@
   
 
 <style>
+    #onBoardingModal .btn-secondary{
+        background-color: inherit;
+    }
 </style>

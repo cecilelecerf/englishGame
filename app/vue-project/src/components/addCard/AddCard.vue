@@ -17,18 +17,21 @@
         <BButton type="reset" variant="danger">Reset</BButton>
       </div>
   </BForm>
-  <!-- <BButton @click="generatePdf()">Télécharger le pdf</BButton> -->
-  <div id="allCard" class="border-top pt-3">
-    <h1>Your futur cards</h1>
-    <div id="card-level1">
-      <BackCardTemplate :image1="icon" :image2="Brands[getRandomInt(Brands.length)].iconBrand" :image3="Brands[getRandomInt(Brands.length)].iconBrand"  :image4="Brands[getRandomInt(Brands.length)].iconBrand"    />
+
+  <div class="border-top" id="allCard">
+    <h1 class="my-3 text-center">Your futur cards</h1>
+    <div >
+      <div id="card-level1">
+        <BackCardTemplate :image1="icon" :image2="Brands[getRandomInt(Brands.length)].iconBrand" :image3="Brands[getRandomInt(Brands.length)].iconBrand"  :image4="Brands[getRandomInt(Brands.length)].iconBrand"    />
+      </div>
+      <div id="card-level2">
+        <BackCardTemplate :image1="pixel" :image2="Brands[getRandomInt(Brands.length)].pixalisedLogo" :image3="Brands[getRandomInt(Brands.length)].pixalisedLogo"  :image4="Brands[getRandomInt(Brands.length)].pixalisedLogo"     />
+      </div>
+      <div id="card-level3">
+        <BackCardTemplate :image1="iconographic" :image2="Brands[getRandomInt(Brands.length)].iconographicLogo" :image3="Brands[getRandomInt(Brands.length)].iconographicLogo"  :image4="Brands[getRandomInt(Brands.length)].iconographicLogo"     />
+      </div>
     </div>
-    <div id="card-level2">
-      <BackCardTemplate :image1="pixel" :image2="Brands[getRandomInt(Brands.length)].pixalisedLogo" :image3="Brands[getRandomInt(Brands.length)].pixalisedLogo"  :image4="Brands[getRandomInt(Brands.length)].pixalisedLogo"     />
-    </div>
-    <div id="card-level3">
-      <BackCardTemplate :image1="iconographic" :image2="Brands[getRandomInt(Brands.length)].iconographicLogo" :image3="Brands[getRandomInt(Brands.length)].iconographicLogo"  :image4="Brands[getRandomInt(Brands.length)].iconographicLogo"     />
-    </div>
+    <!-- <BButton @click="generatePdf()">Télécharger le pdf</BButton> -->
   </div>
   </template>
   
@@ -164,13 +167,16 @@
   </script>
 
 <style scoped >
-  #allCard{
+#allCard{
+  margin-bottom: 90px;
+}
+  #allCard > div{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
   @media screen and (max-width: 580px){
-    #allCard{
+    #allCard > div{
       flex-direction: column;
 
     align-items: center;

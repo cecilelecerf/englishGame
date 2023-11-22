@@ -1,7 +1,6 @@
 <script lang="ts">
 import AddCard from '@/components/addCard/AddCard.vue';
 import OnboardingAddCard from '@/components/addCard/OnboardingAddCard.vue';
-// import MicrosoftTeams-image1 from "@/"
 
 export default{
   name: "HomeView",

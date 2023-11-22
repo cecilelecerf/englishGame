@@ -16,6 +16,11 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: ()=> import("../view/RulesView.vue"),
     },
+    {
+      path: "/versus",
+      name: "versus",
+      component: ()=> import("../view/VersusView.vue"),
+    },
   ],
 });
 
