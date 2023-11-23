@@ -24,34 +24,34 @@
 
         <BButton @click="modal1 = !modal1" class="btn btn-outline-primary"> Explication of add a brand in a game </BButton>
     </div>
-    <BModal v-model="modal1" title="Onboarding" v-if="modal1" ok-title="Next" @ok="nextStep">
+    <BModal v-model="modal1" title="How to add your brand logo" v-if="modal1" ok-title="Next" @ok="nextStep">
         <h3>
-            Vous souhaitez rajouter votre marque ?
+            Prepare these elements
         </h3>
-        <p>
-            Pour cela preparé 3 élèments :
-            <ul>
-                <li>Un logo iconographic</li>
-                <li>Un logo pixelisé</li>
-                <li>Un pictogramme/élément visuel représentant la marque</li>
-            </ul>
-        </p>
-        
-
+        <ul>
+            <li>An iconographic logo (without your brand name)</li>
+            <li>A pixelated logo with a blur Alexandre combien regarder dite moi d'enlever ça sinon je vais oubliernqirgnqletijgnigni</li>
+            <li>A pictogram/visual element representing the brand</li>
+        </ul>
     </BModal>
 
-    <BModal v-model="modal2" title="Onboarding" v-if="modal2" cancel-title="Precedent" @cancel="lastStep">
-        <h3>Condition pour les images</h3>
-        <ul>
-            <li>Le logo doit être de format carré</li>
-            <li>Il doit être dans le bon sens</li>
-        </ul>
+    <BModal v-model="modal2" title="Conditions" v-if="modal2" cancel-title="Previous" @cancel="lastStep">
+        <ol>
+            <li>Your image must be in a square format (1:1)</li>
+            <li>Your image must be in the right orientation</li>
+            <li>Your image must be in a png</li>
+        </ol>
     </BModal>
 </template>
   
 
-<style>
+<style scoped>
     #onBoardingModal .btn-secondary{
-        background-color: inherit;
+        background-color: #D0C1E0;
+         border: 2px solid #D0C1E0;
+         color: white;
+         font-weight: bold;
+
     }
+
 </style>

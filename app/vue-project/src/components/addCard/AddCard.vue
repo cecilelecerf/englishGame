@@ -18,20 +18,23 @@
       </div>
   </BForm>
 
-  <div class="border-top" id="allCard">
+  <div class="border-top d-flex flex-column" id="allCard">
     <h1 class="my-3 text-center">Your futur cards</h1>
     <div >
-      <div id="card-level1">
-        <BackCardTemplate :image1="icon" :image2="Brands[getRandomInt(Brands.length)].iconBrand" :image3="Brands[getRandomInt(Brands.length)].iconBrand"  :image4="Brands[getRandomInt(Brands.length)].iconBrand"    />
+      <div id="card-level1" class="my-2">
+        <CardTemplate :image1="icon" :image2="Brands[getRandomInt(Brands.length)].iconBrand" :image3="Brands[getRandomInt(Brands.length)].iconBrand"  :image4="Brands[getRandomInt(Brands.length)].iconBrand"    />
       </div>
-      <div id="card-level2">
-        <BackCardTemplate :image1="pixel" :image2="Brands[getRandomInt(Brands.length)].pixalisedLogo" :image3="Brands[getRandomInt(Brands.length)].pixalisedLogo"  :image4="Brands[getRandomInt(Brands.length)].pixalisedLogo"     />
+      <div id="card-level2" class="my-2">
+        <CardTemplate :image1="pixel" :image2="Brands[getRandomInt(Brands.length)].pixalisedLogo" :image3="Brands[getRandomInt(Brands.length)].pixalisedLogo"  :image4="Brands[getRandomInt(Brands.length)].pixalisedLogo"     />
       </div>
-      <div id="card-level3">
-        <BackCardTemplate :image1="iconographic" :image2="Brands[getRandomInt(Brands.length)].iconographicLogo" :image3="Brands[getRandomInt(Brands.length)].iconographicLogo"  :image4="Brands[getRandomInt(Brands.length)].iconographicLogo"     />
+      <div id="card-level3" class="my-2">
+        <CardTemplate :image1="iconographic" :image2="Brands[getRandomInt(Brands.length)].iconographicLogo" :image3="Brands[getRandomInt(Brands.length)].iconographicLogo"  :image4="Brands[getRandomInt(Brands.length)].iconographicLogo"     />
+      </div>
+      <div id="card-level4" class="my-2">
+        <CardBrand :title="form.brand" />
       </div>
     </div>
-    <!-- <BButton @click="generatePdf()">Télécharger le pdf</BButton> -->
+    <BButton @click="generatePdf()" class="my-3">Dowload a pdf</BButton>
   </div>
   </template>
   
@@ -39,8 +42,14 @@
     import { nextTick, reactive, ref } from 'vue';
     import html2canvas from 'html2canvas'
     import jspdf from "jspdf"
-    import BackCardTemplate from './BackCardTemplate.vue';
+    import CardTemplate from './CardTemplate.vue';
     import { Brands } from "@/data/Brands"
+    import CardBrand from './CardBrand.vue';
+
+    import CardBrandImage from '@/assets/CardBrand.png';
+    import CardLevel1 from '@/assets/CardLevel1.png';
+    import CardLevel2 from '@/assets/CarsLevel2.png';
+    import CardLevel3 from '@/assets/CardLevel3.png';
 
     function getRandomInt(max :number) {
       return Math.floor(Math.random() * max);
@@ -105,32 +114,27 @@
     const pixel = localStorage.getItem('pixalisedLogo') || undefined
     const iconographic = localStorage.getItem('iconographicLogo') || undefined
 
-    const generatePdf = async (
-      form ?: { level: number | null; brand: string; icon: File | null; logo: File | null; iconBusiness: File | null }) => {
+    const generatePdf = async () => {
     
-      const pdf = new jspdf();
+      const pdf = new jspdf({
+        unit : "cm"
+      });
       const level1 = document.getElementById("card-level1");
       const level2 = document.getElementById("card-level2");
       const level3 = document.getElementById("card-level3");
-
-      console.log(form);
+      const name = document.getElementById("card-level4");
 
       // Fonction pour ajouter une image au PDF
       const addImageToPdf = async (element: HTMLElement | null, x: number, y: number) => {
         if (element) {
-          console.log(element)
           await html2canvas(element, {}).then(
             (canvas) => {
-              const imgWidthMm = 80; // Largeur en mm pour une feuille A4
-              const imgWidthPx = 300 * (imgWidthMm / 25.4); // Largeur en pixels à 300 dpi
-              const imgHeightPx = (imgWidthPx / canvas.width) * canvas.height;
-
               pdf.addImage(
                 canvas.toDataURL("image/png"),
                 "PNG",
                 x,
                 y,
-                imgWidthPx, imgHeightPx
+                5.8, 9.1
               );
             },
             (error) => {
@@ -141,10 +145,15 @@
       };
 
       // Ajouter les images de chaque niveau
-      await addImageToPdf(level1, 10, 10);
-      await addImageToPdf(level2, 80, 10); // Ajustez ces coordonnées selon vos besoins
-      await addImageToPdf(level3, 150, 10); 
-
+      await addImageToPdf(level1, 1, 1);
+      await addImageToPdf(level2, 7, 1); // Ajustez ces coordonnées selon vos besoins
+      await addImageToPdf(level3, 1, 19); 
+      await addImageToPdf(name, 7, 19); 
+      pdf.addPage();
+      pdf.addImage(CardLevel1, "PNG", 1, 1, 5.8, 9.1);
+      pdf.addImage(CardLevel2, "PNG", 7, 1, 5.8, 9.1);
+      pdf.addImage(CardLevel3, "PNG", 1, 19, 5.8, 9.1);
+      pdf.addImage(CardBrandImage, "PNG", 7, 19, 5.8, 9.1);
       // Enregistrer le document PDF
       pdf.save("document.pdf");
     };
@@ -187,4 +196,10 @@
     width: fit-content;
     height: fit-content;
   }
+  #allCard .btn-secondary{
+    font-weight: bold;
+  background: rgb(208,193,224);
+  background: linear-gradient(142deg, rgba(208,193,224,1) 0%, rgba(208,193,224,1) 41%, rgba(250,228,132,1) 94%, rgba(204,229,206,1) 100%);
+  border: none;
+}
 </style>

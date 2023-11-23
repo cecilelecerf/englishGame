@@ -1,9 +1,8 @@
 <template>
     <footer>
-
       <BNav class="justify-content-around">
         <RouterLink to="/">
-          <BNavItem><font-awesome-icon icon="puzzle-piece" /></BNavItem>
+          <BNavItem><img src="../assets/Exclude.svg" alt=""></BNavItem>
         </RouterLink>
         <RouterLink to="/rules">
             <BNavItem>
@@ -28,18 +27,16 @@
     left: 0;
     width: 100%;
     background-color: #D0C1E0; 
-    padding: 10px; /* Ajoutez un espacement intérieur au besoin */
-    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); /* Ajoutez une ombre au besoin */
-
+    padding: 5px; 
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); 
   }
     .nav{
         --bs-nav-link-color: #f8f8f8  !important;
-        font-size: 40px;
+        font-size: 30px;
         width: 100%;
     }
-    
-
-  
-  
+    img{
+      height: 35px;
+    }
   </style>
   

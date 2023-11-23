@@ -17,17 +17,17 @@ export default{
     <h4>🗃️ Material</h4>
     <ul>
       <li>25 cards for level 1 
-        <img src="../assets/CardLevel1.png" />
+        <img src="../assets/CardLevel1.png" class="ms-2"/>
       </li>
       <li>25 cards for level 2
-        <img src="../assets/CarsLevel2.png" />
+        <img src="../assets/CarsLevel2.png" class="ms-2"/>
 
       </li>
       <li>25 cards for level 3
-        <img src="../assets/CardLevel3.png" />
+        <img src="../assets/CardLevel3.png" class="ms-2"/>
       </li>
       <li>80 board cards
-        <img src="../assets/CardBrand.png" />
+        <img src="../assets/CardBrand.png" class="ms-2"/>
       </li>
     </ul>
   </section>
@@ -54,24 +54,22 @@ export default{
   <section class="py-2 border-bottom">
     <h4>♟️ Set Up</h4>
     <p>Choose your level <br> For each level, you need to match the brand cards with :</p>
-    <BContainer class="py-3 border-bottom">
-    <BRow>
-      <BCol>
-        <h6 class="text-center">👥<br>Level 1</h6>
+    <BContainer class="py-3">
+      <BContainer class="d-flex flex-column align-center">
+        <h6 class="text-center">👥 Level 1</h6>
         <p class="text-center">Icons logos</p>
         <img src="../data/iconographicLogo/VacheQUi.png" />
-      </BCol>
-      <BCol>
-        <h6 class="text-center">⏱️<br> Level 2</h6>
-        <p class="text-center">10-15min</p>
+      </BContainer>
+      <BContainer class="d-flex flex-column align-center mt-5">
+        <h6 class="text-center">⏱️ Level 2</h6>
+        <p class="text-center">Pixelated icons</p>
         <img src="../data/pixalisedLogo/VacheQuiRit.png" />
-      </BCol>
-      <BCol>
-        <h6 class="text-center">🐔<br> Level 3</h6>
-        <p class="text-center">2 - 6</p>
+      </BContainer>
+      <BContainer class="d-flex flex-column align-center mt-5">
+        <h6 class="text-center">🐔 Level 3</h6>
+        <p class="text-center">An object that evokes the product or service sold by the brand.</p>
         <img src="../data/iconBrand/Vache qui rit.svg" />
-      </BCol>
-    </BRow>
+      </BContainer>
   </BContainer>
   </section>
   <section class="py-2 border-bottom">
@@ -107,8 +105,9 @@ export default{
   margin-bottom: 110px !important;
 }
 .border-bottom img{
-  height: 70px;
+  height: 50px;
   rotate: 10deg;
+  object-fit: contain;
 }
 
 </style>

@@ -1,6 +1,6 @@
 <template>
 <div class="d-flex justify-content-center flex-column p-5 mt-5" id="count">
-  <h3 class="text-center">{{ countdown }}</h3>
+  <h1 class="text-center">{{ countdown }}</h1>
   <BButtonGroup class="d-flex justify-content-aroud">
     <BButton @click="startCountdown" >Start</BButton>
     <BButton @click="stopCountdown">Stop</BButton>
@@ -23,7 +23,6 @@
         } else {
           clearInterval(intervalId);
           intervalId = undefined;
-          // Le compte à rebours est terminé, vous pouvez ajouter du code ici
         }
       }, 1000);
     }
@@ -47,12 +46,28 @@
   
   <style scoped>
   #count{
-    border: solid 1px gray;
+    border: solid 1px #D0C1E0;
     border-radius: 20px;
   }
-  #count h3{
-    color: pink;
+  #count h1{
+    color: #D0C1E0;
+    font-weight: bold;
   }
-  /* Ajoutez vos styles CSS au besoin */
+  .btn-group button{
+    border: none;
+  }
+
+  .btn-group button:first-child{
+    background-color: #CCE5CE;
+
+  }
+  .btn-group button:nth-child(2){
+    background-color: #FAE484;
+
+  }
+  .btn-group button:last-child{
+    background-color: #D0C1E0;
+  }
+
   </style>
   

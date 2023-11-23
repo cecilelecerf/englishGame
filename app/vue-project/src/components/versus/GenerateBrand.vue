@@ -19,7 +19,7 @@ const regenerate = ()=>{
 <template >
   <div id="versus">
 
-    <h6 class="text-center">Chaque duéliste vous avez 30s pour déssiner le logo de :</h6>
+    <h6 class="text-center">Cockfighters, you have 30sec to draw this logo !</h6>
     <h1 class="text-center">{{ brandName}}</h1>
     <BButton @click="regenerate">Regenerate a Brand</BButton>
   </div>
@@ -31,6 +31,14 @@ const regenerate = ()=>{
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+#versus .btn-secondary{
+
+  font-weight: bold;
+  background: rgb(208,193,224);
+  background: linear-gradient(142deg, rgba(208,193,224,1) 0%, rgba(208,193,224,1) 41%, rgba(250,228,132,1) 94%, rgba(204,229,206,1) 100%);
+  border: none;
 }
 
 </style>
